@@ -1,0 +1,349 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/wgsbac/wgsbac/master/nextflow_schema.json",
+    "title": "wgsbac/wgsbac pipeline parameters",
+    "description": "Whole Genome Sequencing Analysis Pipeline for Assembled Bacterial Genome",
+    "type": "object",
+    "$defs": {
+        "input_output_options": {
+            "title": "Input/output options",
+            "type": "object",
+            "description": "Define where the pipeline should find input data and save output data.",
+            "required": ["input", "outdir"],
+            "properties": {
+                "input": {
+                    "type": "string",
+                    "description": "Input data for the pipeline"
+                },
+                "outdir": {
+                    "type": "string",
+                    "description": "The output directory where the results will be saved.",
+                    "default": "s3://aws-batch-nigms-batch-bucket-/nextflow_output/"
+                }
+            }
+        },
+        "pipeline_config_options": {
+            "title": "Pipeline config options",
+            "type": "object",
+            "description": "Generic pipeline configuration options",
+            "properties": {
+                "tracedir": {
+                    "type": "string",
+                    "description": "Directory for pipeline tracing files",
+                    "default": "${params.outdir}/pipeline_info"
+                },
+                "publish_dir_mode": {
+                    "type": "string",
+                    "description": "Method used to save pipeline results to output directory",
+                    "default": "copy"
+                },
+                "email": {
+                    "type": ["string", "null"],
+                    "description": "Email address for completion summary"
+                },
+                "email_on_fail": {
+                    "type": ["string", "null"],
+                    "description": "Email address for completion summary, only when pipeline fails"
+                },
+                "plaintext_email": {
+                    "type": "boolean",
+                    "description": "Send plain-text email instead of HTML",
+                    "default": false
+                },
+                "monochrome_logs": {
+                    "type": "boolean",
+                    "description": "Do not use coloured log outputs",
+                    "default": false
+                },
+                "hook_url": {
+                    "type": ["string", "null"],
+                    "description": "Incoming webhook URL for messaging service"
+                },
+                "help": {
+                    "type": "boolean",
+                    "description": "Display help text",
+                    "default": false
+                },
+                "version": {
+                    "type": "boolean",
+                    "description": "Display version and exit",
+                    "default": false
+                },
+                "validate_params": {
+                    "type": "boolean",
+                    "description": "Validate parameters against the schema at runtime",
+                    "default": true
+                },
+                "show_hidden_params": {
+                    "type": "boolean",
+                    "description": "Show all params when using --help",
+                    "default": false
+                },
+                "schema_ignore_params": {
+                    "type": "string",
+                    "description": "Params to ignore when validating the schema",
+                    "default": "genomes"
+                }
+            }
+        },
+        "fastp_options": {
+            "title": "FASTP options",
+            "type": "object",
+            "description": "Options for FASTP analysis",
+            "properties": {
+                "adapter_fasta": {
+                    "type": "array",
+                    "description": "Adapter FASTA file(s)",
+                    "default": []
+                },
+                "discard_trimmed_pass": {
+                    "type": "boolean",
+                    "description": "Discard trimmed reads that pass filters",
+                    "default": false
+                },
+                "save_trimmed_fail": {
+                    "type": "boolean",
+                    "description": "Save trimmed reads that fail filters",
+                    "default": false
+                },
+                "save_merged": {
+                    "type": "boolean",
+                    "description": "Save merged reads",
+                    "default": false
+                }
+            }
+        },
+        "spades_options": {
+            "title": "SPADES options",
+            "type": "object",
+            "description": "Options for FASTP analysis",
+            "properties": {
+                "yml": {
+                    "type": "array",
+                    "description": "Path to YAML file",
+                    "default": []
+                },
+                "hmm": {
+                    "type": "array",
+                    "description": "Path to HMM",
+                    "default": []
+                }
+            }
+        },
+        "busco_options": {
+            "title": "BUSCO options",
+            "type": "object",
+            "description": "Options for BUSCO (Benchmarking Universal Single-Copy Orthologs) analysis",
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "description": "BUSCO mode of operation",
+                    "default": "genome",
+                    "enum": ["genome", "proteins", "transcriptome"]
+                },
+                "lineage": {
+                    "type": "string",
+                    "description": "BUSCO lineage dataset to use",
+                    "default": "bacteria_odb10"
+                },
+                "busco_db": {
+                    "type": "string",
+                    "description": "Path to BUSCO lineages database",
+                    "default": "wgsbac/assets/data/databases/busco_db/"
+                },
+                "config_file": {
+                    "type": ["string", "null"],
+                    "description": "Path to BUSCO configuration file (optional)",
+                    "default": null
+                },
+                "clean_intermediates": {
+                    "type": "boolean",
+                    "description": "Remove intermediate files after BUSCO analysis",
+                    "default": false
+                }
+            }
+        },
+        "blastn_options": {
+            "title": "BLASTN options",
+            "type": "object",
+            "description": "Options for BLASTN analysis",
+            "properties": {
+                "blast_db": {
+                    "type": "string",
+                    "description": "Path to BLAST database",
+                    "default": "wgsbac/assets/data/databases/blast_db/"
+                }
+            }
+        },
+        "bakta_options": {
+            "title": "Bakta options",
+            "type": "object",
+            "description": "Options for Bakta analysis",
+            "properties": {
+                "bakta_db": {
+                    "type": ["string", "null"],
+                    "description": "Path to bakta_db",
+                    "default": null
+                },
+                "bakta_proteins": {
+                    "type": ["string", "null"],
+                    "description": "Path to protein sequences file (optional)",
+                    "default": null
+                },
+                "bakta_prodigal_tf": {
+                    "type": ["string", "null"],
+                    "description": "Path to Prodigal training file (optional)",
+                    "default": null
+                }
+            }
+        },
+        "baktadbdownload_options": {
+            "title": "Baktadbdownload options",
+            "type": "object",
+            "description": "Options for Baktadbdownload type",
+            "properties": {
+                "bakta_db_type": {
+                    "type": "string",
+                    "description": "Type of Bakta database",
+                    "default": "light"
+                }
+            }
+        },
+        "blobtools_options": {
+            "title": "Blobtools options",
+            "type": "object",
+            "description": "Options for Blobtools analysis",
+            "properties": {
+                "nodes_db": {
+                    "type": "string",
+                    "description": "Path to nodesDB.txt file",
+                    "default": "s3://nigms-sandbox/unh-wgsbac-pipeline/blobtools/nodesDB.txt"
+                }
+            }
+        },
+        "aws_options": {
+            "title": "AWS options",
+            "type": "object",
+            "description": "Options for AWS execution",
+            "properties": {
+                "awsqueue": {
+                    "type": "string",
+                    "description": "AWS Batch job queue",
+                    "default": "aws-batch-nigms-JobQueue"
+                },
+                "awsregion": {
+                    "type": "string",
+                    "description": "AWS region",
+                    "default": "aws-region"
+                },
+                "awsworkdir": {
+                    "type": "string",
+                    "description": "AWS work directory",
+                    "default": "s3://aws-batch-nigms-batch-bucket-/nextflow_env/"
+                },
+                "awscli_path": {
+                    "type": "string",
+                    "description": "AWS CLI directory",
+                    "default": "/home/ec2-user/anaconda3/bin/aws"
+                },
+                "awscli": {
+                    "type": "string",
+                    "description": "AWS CLI",
+                    "default": "/home/ec2-user/miniconda3/bin/aws"
+                },
+                "aws_execrole": {
+                    "type": "string",
+                    "description": "AWS execution role",
+                    "default": "ExecutionRole"
+                }
+            }
+        },
+        "max_job_request_options": {
+            "title": "Max job request options",
+            "type": "object",
+            "description": "Set the top limit for requested resources for any single job.",
+            "properties": {
+                "max_cpus": {
+                    "type": "integer",
+                    "description": "Maximum number of CPUs that can be requested for any single job.",
+                    "default": 16
+                },
+                "max_memory": {
+                    "type": "string",
+                    "description": "Maximum amount of memory that can be requested for any single job.",
+                    "default": "128.GB"
+                },
+                "max_time": {
+                    "type": "string",
+                    "description": "Maximum amount of time that can be requested for any single job.",
+                    "default": "240.h"
+                }
+            }
+        },
+        "institutional_config_options": {
+            "title": "Institutional config options",
+            "type": "object",
+            "description": "Parameters used to describe centralised config profiles",
+            "properties": {
+                "custom_config_version": {
+                    "type": "string",
+                    "description": "Git commit id for Institutional configs",
+                    "default": "master"
+                },
+                "custom_config_base": {
+                    "type": "string",
+                    "description": "Base directory for Institutional configs",
+                    "default": "https://raw.githubusercontent.com/nf-core/configs/master"
+                },
+                "config_profile_description": {
+                    "type": "string",
+                    "description": "Institutional config description"
+                },
+                "config_profile_contact": {
+                    "type": "string",
+                    "description": "Institutional config contact information"
+                },
+                "config_profile_url": {
+                    "type": "string",
+                    "description": "Institutional config URL link"
+                },
+                "config_profile_name": {
+                    "type": "string",
+                    "description": "Institutional config name"
+                }
+            }
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/$defs/input_output_options"
+        },
+        {
+            "$ref": "#/$defs/pipeline_config_options"
+        },
+        {
+            "$ref": "#/$defs/fastp_options"
+        },
+        {
+            "$ref": "#/$defs/busco_options"
+        },
+        {
+            "$ref": "#/$defs/blastn_options"
+        },
+        {
+            "$ref": "#/$defs/bakta_options"
+        },
+        {
+            "$ref": "#/$defs/baktadbdownload_options"
+        },
+        {
+            "$ref": "#/$defs/aws_options"
+        },
+        {
+            "$ref": "#/$defs/max_job_request_options"
+        },
+        {
+            "$ref": "#/$defs/institutional_config_options"
+        }
+    ]
+}

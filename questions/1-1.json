@@ -1,0 +1,21 @@
+{
+    "descripton": "Match the appropriate powers to the superhero:",
+    "questions": [
+        {
+            "question": "Flight",
+            "answer": "Superman",
+            "explanation": "Hint: Crypton is calling."
+        },
+        {
+            "question": "Spidey Sense",
+            "answer": "Spiderman",
+            "explanation": "Hint: Someone with spider powers."
+        },
+        {
+            "question": "Defeats all other superheros",
+            "answer": "Chuck Norris",
+            "explanation": "Hint: His tears cure cancer. Too bad he's never cried!"
+        }
+    ],
+    "distractors": ["Batman", "Mr T", "Antman"]
+}

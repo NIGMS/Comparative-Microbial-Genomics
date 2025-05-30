@@ -1,0 +1,74 @@
+{
+    "name": "nf-core/wgs",
+    "homePage": "https://github.com/nf-core/wgs",
+    "repos": {
+        "https://github.com/nf-core/modules.git": {
+            "modules": {
+                "nf-core": {
+                    "bakta": {
+                        "branch": "master",
+                        "git_sha": "81880787133db07d9b4c1febd152c090eb8325dc",
+                        "installed_by": ["modules"]
+                    },
+                    "baktadbdownload": {
+                        "branch": "master",
+                        "git_sha": "4442bd9dee17059cc5f0764f1504839c9630f423",
+                        "installed_by": ["modules"]
+                    },
+                    "blast/blastn": {
+                        "branch": "master",
+                        "git_sha": "81880787133db07d9b4c1febd152c090eb8325dc",
+                        "installed_by": ["modules"]
+                    },
+                    "busco": {
+                        "branch": "master",
+                        "git_sha": "ab1d1dbf63348a2b0b9dbbf2007856280127f5d0",
+                        "installed_by": ["modules"]
+                    },
+                    "bwa/index": {
+                        "branch": "master",
+                        "git_sha": "15a93581f7f81d05c04b828954004a089360ea9b",
+                        "installed_by": ["modules"]
+                    },
+                    "bwa/mem": {
+                        "branch": "master",
+                        "git_sha": "15a93581f7f81d05c04b828954004a089360ea9b",
+                        "installed_by": ["modules"]
+                    },
+                    "fastp": {
+                        "branch": "master",
+                        "git_sha": "df6f67c19f76671b42ffa395cd2fde8958111eba",
+                        "installed_by": ["modules"]
+                    },
+                    "fastqc": {
+                        "branch": "master",
+                        "git_sha": "81880787133db07d9b4c1febd152c090eb8325dc",
+                        "installed_by": ["modules"]
+                    },
+                    "quast": {
+                        "branch": "master",
+                        "git_sha": "81880787133db07d9b4c1febd152c090eb8325dc",
+                        "installed_by": ["modules"]
+                    },
+                    "samtools/index": {
+                        "branch": "master",
+                        "git_sha": "b13f07be4c508d6ff6312d354d09f2493243e208",
+                        "installed_by": ["modules"]
+                    },
+                    "spades": {
+                        "branch": "master",
+                        "git_sha": "81880787133db07d9b4c1febd152c090eb8325dc",
+                        "installed_by": ["modules"]
+                    }
+                },
+                "local": {
+                    "blobtools": {
+                        "branch": "main",
+                        "git_sha": "9426ca4a6dd0e0a2a67841d92b60b101fc52b921",
+                        "installed_by": ["modules"]
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+name: wgsbac
+channels:
+  - bioconda
+  - conda-forge
+  - defaults

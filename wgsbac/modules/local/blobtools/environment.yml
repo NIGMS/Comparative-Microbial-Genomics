@@ -1,0 +1,12 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/environment-schema.json
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - "bioconda::blobtools=1.1.1"
+  - "docopt"
+  - "matplotlib"
+  - "tqdm"
+  - "pysam"
+  - "pyyaml>=4.2b1"
