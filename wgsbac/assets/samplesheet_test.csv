@@ -1,0 +1,2 @@
+sample,fastq_1,fastq_2
+SAMPLE_PE,wgsbac/assets/data/raw_reads/SRR10056829_1.fastq.gz,wgsbac/assets/data/raw_reads/SRR10056829_2.fastq.gz

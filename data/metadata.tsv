@@ -1,0 +1,11 @@
+Isolate No.	SRA Accession	Species	Resistance to Erythromycin (Macrolide)	Resistance to Ciprofloxacin (Fluoroquinolone)	Resistance Determinants (Ciprofloxacin)	Resistance to Tetracycline (Tetracycline)	Resistance Determinants (Tetracycline)	Resistance to Gentamicin (Aminoglycoside)	Resistance Determinants (Gentamicin)	Resistance to Streptomycin (Aminoglycoside)	Resistance Determinants (Streptomycin)
+72	SRR10067958	C. jejuni	S	S	—	R	—	S	—	S	—
+91	SRR10068079	C. jejuni	S	S	gyrA_CJ[86:T-I]	S	tet(O)	S	—	S	—
+145	SRR10068117	C. jejuni	S	S	—	R	—	S	—	S	—
+193	SRR10056681	C. jejuni	S	S	gyrA_CJ[86:T-I]	R	tet(O)_2	S	—	R	—
+213	SRR10056829	C. jejuni	S	S	—	S	tet(O)	S	—	S	ant(6)-Ia, aadE-Cp2
+214	SRR10056914	C. coli	S	S	—	S	—	S	—	S	—
+242	SRR10056778	C. coli	S	S	—	S	—	S	—	R	—
+248	SRR10056855	C. jejuni	S	S	23s_CJ[2074:A-M], gyrA_CJ[86:T-I; 90:D-N]	R	tet(O)_2	S	—	S	—
+263	SRR10056784	C. jejuni	S	S	gyrA_CJ[86:T-I]	R	tet(O)_2	S	—	R	ant(6)-Ia, aadE-Cp2
+276	SRR10056856	C. jejuni	S	S	—	S	—	S	—	R	—
