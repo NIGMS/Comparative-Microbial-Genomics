@@ -13,6 +13,15 @@
 + [Funding](#funding)
 + [License for Data](#license-for-data)
 
+## Video Overview
+<p align="center">
+        <a href="https://www.youtube.com/watch?v=ShrU5Q6FZog&list=PLXaEJPtnQ4w7Vu7vqWbttBjUGrPp4Qa7b&index=14">
+            <img src="images/nh_video1.png" alt="Overview", width="400"/>
+        </a>
+    <br>
+    <span> <b>Click above image to watch overview video</b> </span>
+</p>
+
 ## **Overview**
 This module introduces you to whole-genome sequencing and comparative genomics. You will work with numerous tools to assemble and assess a microbial genome, automate the process on many samples, and utilize the full dataset for comparative genomics analyses.
 
@@ -36,16 +45,24 @@ For additional technical details on interfacing with the cloud users should refe
 ![workflow diagram](images/nh-architecture-diagram.png)
 
 
-+ Submodule 1, **Introduction to Genome Sequencing and Assembly** provides an introduction to how genome sequenicng data is generated, with a focus on Illumina next-generation sequenicng platforms. The submodule starts working with the sequencing data, covering the download of data from public repositories, common quality control steps, and ends with assembly of the sequencing data.
++ Submodule 1, **Introduction to Genome Sequencing and Assembly** provides an introduction to how genome sequencing data is generated, with a focus on Illumina next-generation sequencing platforms. The submodule starts working with the sequencing data, covering the download of data from public repositories, common quality control steps, and ends with assembly of the sequencing data.
 
-+ Submodule 2, **Genome Assessment and Genome Annotation** teaches you how to assess the quality of a *de novo* genome assembly and introduces importantant bionformatic tools and file formars. This is a crucial step to ensure high quality data goes into the comparative genomics module. This submodule ends with a lesson on genome annotation. 
++ Submodule 2, **Genome Assessment and Genome Annotation** teaches you how to assess the quality of a *de novo* genome assembly and introduces important bioinformatic tools and file formats. This is a crucial step to ensure high quality data goes into the comparative genomics module. This submodule ends with a lesson on genome annotation. 
 
-+ Submodule 3, **Workflow Automation and Acquisition of Public Datasets** Reproducability and scalability are crucial in bionformatics, especially in analyses that include large numbers of genome datasets. In this module we process many datasets through the same workflow covered in submodules 1 and 2.
++ Submodule 3, **Workflow Automation and Acquisition of Public Datasets** Reproducibility and scalability are crucial in bioinformatics, especially in analyses that include large numbers of genome datasets. In this module we process many datasets through the same workflow covered in submodules 1 and 2.
 
-+ Submodule 4, **Comparative Genomics Analysis** The final module combines the output from all other submodules and runs a comparative genomics analysis using the tool Orthofinder. This module includes the generation of the final tables and visualiztions.
++ Submodule 4, **Comparative Genomics Analysis** The final module combines the output from all other submodules and runs a comparative genomics analysis using the tool Orthofinder. This module includes the generation of the final tables and visualizations.
 
 
 ## Creating a notebook 
+
+<p align="center">
+        <a href="https://www.youtube.com/watch?v=CHHSO1NS3Xs&list=PLXaEJPtnQ4w7Vu7vqWbttBjUGrPp4Qa7b">
+            <img src="images/aws_notebook_setup_thumbnail.jpeg" alt="Overview", width="400"/>
+        </a>
+    <br>
+    <span> <b>Click above image to watch overview video</b> </span>
+</p>
 
 Follow [these steps](https://github.com/NIGMS/NIGMS-Sandbox/blob/main/docs/HowToCreateAWSSagemakerNotebooks.md#set-up-sagemaker-studio) to create a new notebook in Amazon Sagemaker Studio. When setting up the 'Domain' in **step 5** you need to provide a link to a custom container for this project, this is an image that provides the software used throughout the tutorial (see software requirements section below). In this step click on 'Environment' in the top banner followed by 'Attach image' on the right. Attach the custom image container using the URI `009160071907.dkr.ecr.us-east-1.amazonaws.com/unh/custombuilds:1.4`. Provide a name for your image and be sure to change the 'Image type' to 'SageMaker Studio image', provide a kernel name, and click submit.  
 
