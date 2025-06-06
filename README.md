@@ -1,7 +1,10 @@
-![course card](images/nh-course-card.png)
-
 # NH-INBRE - Genome Sequencing and Comparative Genomic Analysis
----------------------------------
+
+<br>
+<p align="center">
+    <img src="images/nh-course-card.png" width="400" />
+</p>
+
 ## **Contents**
 
 + [Overview](#overview)
